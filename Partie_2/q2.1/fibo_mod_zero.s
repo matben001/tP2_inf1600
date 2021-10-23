@@ -13,11 +13,25 @@ movl 4(%esp), %esi           #periode de pisano de m (pisano(m))
 push %ebp
 movl %esp, %ebp
 push %ebx      
+movl $adr_pisano_m, %edx
+movl %esi, %ecx
+movl $0, %eax
 
-###
-#votre programme ici
-###
+equal:
+  addl $1, %eax
+  subl $1, %ecx
+L1:
+  addl $4, %edx
+  cmpl $0, (%edx)
+  je equal
+  subl $1, %ecx
+  cmpl $0, %ecx
+  je fin
+  jmp L1
 
-popl  %ebx
-popl  %ebp 
-ret
+
+fin:
+	popl  %ebx
+	popl  %ebp 
+	ret
+

@@ -13,9 +13,15 @@ push %ebp
 movl %esp,%ebp
 push %ebx      
              
-###
-#votre programme ici
-###
+movl $adr_fibo,%edx
+movl %edi ,%ecx
+L1:
+   movl (%edx), %eax
+   addl 4(%edx),%eax
+   movl %eax, 8(%edx)
+   addl $4, %edx
+   loop L1
+
 
 pop %ebx
 pop %ebp

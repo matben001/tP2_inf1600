@@ -8,10 +8,10 @@ movl 8(%esp),%esi           # q
 push %ebp
 movl %esp,%ebp
 push %ebx      
-             
-###
-#votre programme ici
-###
+movl $0, %eax    
+movl %esi, %%ecx
+L1:
+ addl %edi, %eax
 
 popl  %ebx
 popl  %ebp   
